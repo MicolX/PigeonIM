@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.micolx.testclient.protobuf";
+
+message ChatMessage {
+  string msgID = 1;
+  string senderID = 2;
+  string recipientID = 3;
+	int32 sequenceID = 4;
+	string content = 5;
+	string time = 6;
+}
+
+
+message AckMessage {
+  string msgID = 1;
+  string recipientID = 2;
+  AckType type = 3;
+}
+
+message GreetMessage {
+  string userId = 1;
+  string time = 3;
+}
+
+enum AckType {
+    SENT = 0;
+    RECEIVED = 1;
+    READ = 2;
+}
